@@ -28,44 +28,7 @@ const ControlPanel = ({
                 {gameState === 'finished' && 'Game Over'}
             </h2>
 
-            {gameState === 'idle' && (
-                <>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                        <label>Difficulty: {difficulty}</label>
-                        <select
-                            value={difficulty}
-                            onChange={(e) => setDifficulty(e.target.value)}
-                            style={{
-                                padding: '5px',
-                                borderRadius: '4px',
-                                background: 'rgba(0,0,0,0.5)',
-                                color: 'white',
-                                border: '1px solid rgba(255,255,255,0.3)'
-                            }}
-                        >
-                            <option value="Easy">Easy</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Hard">Hard</option>
-                            <option value="Impossible">Impossible</option>
-                        </select>
-                    </div>
-                    <button
-                        onClick={onStart}
-                        style={{
-                            padding: '10px',
-                            borderRadius: '6px',
-                            background: '#00ff00',
-                            color: 'black',
-                            border: 'none',
-                            fontWeight: 'bold',
-                            cursor: 'pointer',
-                            marginTop: '10px'
-                        }}
-                    >
-                        Start Game
-                    </button>
-                </>
-            )}
+            {gameState === 'idle' && null}
 
             {gameState === 'playing' && (
                 <>

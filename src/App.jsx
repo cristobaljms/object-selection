@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GameCanvas from './components/GameCanvas';
 import ControlPanel from './components/ControlPanel';
 import GameOverModal from './components/GameOverModal';
+import StartGameModal from './components/StartGameModal';
 import './App.css';
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
     }
   };
 
-  const startGame = () => {
+  const startGame = (selectedDifficulty) => {
+    if (selectedDifficulty) setDifficulty(selectedDifficulty);
     setScore(0);
     setTimeLeft(60);
     setGameState('playing');
@@ -76,6 +78,12 @@ function App() {
         timeLeft={timeLeft}
         onStart={startGame}
       />
+      {gameState === 'idle' && (
+        <StartGameModal
+          onStart={startGame}
+          initialDifficulty={difficulty}
+        />
+      )}
       {gameState === 'finished' && (
         <GameOverModal
           score={score}
